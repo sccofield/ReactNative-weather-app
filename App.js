@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Platform, TextInput, KeyboardAvoidingView } from 'react-native';
 
+import SearchInput from './components/SearchInput';
+
 export default function App() {
   return (
     <KeyboardAvoidingView style={styles.container} behaviour='padding'>
@@ -14,6 +16,7 @@ export default function App() {
         24°
       </Text>
 
+      <SearchInput placeholder="Search any city"/>
     </KeyboardAvoidingView>
   );
 }
@@ -35,14 +38,4 @@ const styles = StyleSheet.create({
   smallText: {
     fontSize: 18
   },
-  TextInput: {
-    backgroundColor: '#666',
-    color: 'white',
-    height: 40,
-    width: 300,
-    marginTop: 20,
-    marginHorizontal: 20,
-    paddingHorizontal: 10,
-    alignSelf: 'center'
-  }
 });
