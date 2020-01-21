@@ -2,16 +2,45 @@ import React from 'react';
 import {StyleSheet, TextInput, View } from 'react-native';
 
 export default class SearchInput extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      location: ''
+    }
+  }
+  handleChangeText = (location) => {
+    this.setState({
+      location
+    })
+  }
+
+  handleSubmitEditing = () => {
+    const { onSubmit } = this.props;
+    const { location } = this.state;
+
+    if(!location) return;
+
+    onSubmit(location)
+    this.setState({
+      location:''
+    })
+  }
+
   render(){
+    const { location } = this.state
+    const { placeholder } = this.props;
     return(
       <View style = {styles.container}>
         <TextInput
-          placeholder= {this.props.placeholder}
+          value= {location}
+          placeholder= {placeholder}
           autoCorrect={false}
           placeholderTextColor='white'
           underlineColorAndroid='transparent'
           style={styles.TextInput}
           clearButtonMode='always'
+          onChangeText={this.handleChangeText}
+          onSubmitEditing={this.handleSubmitEditing}
         />
       </View>
     )
