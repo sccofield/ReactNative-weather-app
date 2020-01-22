@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {StyleSheet, TextInput, View } from 'react-native';
 
 export default class SearchInput extends React.Component {
